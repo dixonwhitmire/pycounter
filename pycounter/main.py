@@ -20,13 +20,3 @@ def get_request_count():
 def reset_request_count():
     redis_client.set('counter', '0')
     return f'Current count is 0'
-
-
-def configure_redis_client():
-    return redis_client
-
-
-redis_client = configure_redis_client()
-
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')

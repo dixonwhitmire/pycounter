@@ -1,6 +1,9 @@
 LICENSE
 README.md
 
+# build directories
+build
+dist
 *.egg-info
 
 # virtual environments
