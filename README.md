@@ -1,4 +1,4 @@
-#pycounter
+# pycounter
 pycounter is a sample web application used to demonstrate [Docker and Docker Compose](https://docs.docker.com/reference/)
 container implementations and linking.
 
