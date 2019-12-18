@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  redis:
+    image: redis:5-alpine
+  pycounter:
+    image: dixonwhitmire/pycounter:1.0.0
+    build:
+      context: .
+    ports:
+      - '5000:5000'
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      FLASK_APP: pycounter.main:app
+      FLASK_ENV: development
+      FLASK_RUN_HOST: 0.0.0.0
+      FLASK_RUN_PORT: 5000
