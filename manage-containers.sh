@@ -18,7 +18,7 @@ function start {
     docker network create --driver bridge pycounter_nw
 
     docker run -d --rm --network=pycounter_nw -p 6379:6379 --name pycounter-redis redis:5-alpine
-    docker run -d --rm --network=pycounter_nw -p 5000:5000 --name pycounter-app dixonwhitmire/pycounter:1.0.0
+    docker run -d --rm --network=pycounter_nw -p 5000:5000 --name pycounter-app pycounter/pycounter:1.0.0
 
     docker ps
     docker network inspect pycounter_nw
