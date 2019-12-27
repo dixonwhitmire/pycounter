@@ -19,4 +19,5 @@ def get_request_count():
 @app.route('/reset', methods=['GET'])
 def reset_request_count():
     redis_client.set('counter', '0')
-    return f'Current count is 0'
+    current_value = int(redis_client.get('counter'))
+    return f'Counter has been reset to {current_value}'

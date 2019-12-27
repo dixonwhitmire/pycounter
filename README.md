@@ -1,6 +1,5 @@
 # pycounter
-pycounter is a sample web application used to demonstrate [Docker and Docker Compose](https://docs.docker.com/reference/)
-container implementations and linking.
+pycounter is a sample web application "request counter", used to compare [Docker and Docker Compose](https://docs.docker.com/reference/) configurations and container linking.
 
 The `/counter` endpoint returns the current request count.
 
@@ -29,12 +28,25 @@ docker-compose version 1.24.1, build 4667896b
 Installation guides are available for [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/)
 
 ## build the pycounter image
+using docker cli 
 ```bash
-docker build -t <your dockerhub repo or username>/pycounter:1.0.0 .
+docker build -t pycounter/pycounter:1.0.0 .
+```
+. . . or using docker-compose
+```bash
+docker-compose build
 ```
 
-## docker execution
-To launch pycounter using docker cli, execute the [manage-containers script](manage-containers.sh)
+## docker cli execution
+The `start` and `stop` functions in [manage-containers.sh](manage-containers.sh) use the docker cli to manage
+the application's containers.
+
+Docker components used include:
+- pycounter application container
+- redis container
+- bridge network to support container integration
+
+To start the application
 ```bash
 ./manage-container.sh start
 ```
@@ -42,7 +54,7 @@ To launch pycounter using docker cli, execute the [manage-containers script](man
 The command will output pycounter's networking and container resources. Once the command is complete browse to 
 `http://localhost:5000/counter` to view the current request count.
 
-Use manage containers to remove pycounter's container and networking resources
+To stop the application
 ```bash
 ./manage-containers.sh stop
 ```
@@ -57,5 +69,3 @@ Stop pycounter compose services using
 ```bash
 docker-compose down
 ```
-
-
