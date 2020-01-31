@@ -48,7 +48,7 @@ Docker components used include:
 
 To start the application
 ```bash
-./manage-container.sh start
+./manage-containers.sh start
 ```
 
 The command will output pycounter's networking and container resources. Once the command is complete browse to 
